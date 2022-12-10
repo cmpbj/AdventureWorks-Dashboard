@@ -3,11 +3,10 @@ import pandas as pd
 import streamlit as st
 from PIL import Image
 
-from paths import paht_img
 from auxiliary_functions import get_dataset, temp_combo_chart, temp_bar_charts, temp_bubble_chart, analytical_tables
 
 # Page config
-im = Image.open(paht_img.get('icon'))
+im = Image.open('../AW_dash/icon/bike.ico')
 st.set_page_config(
     page_title="AW Reports",
     page_icon=im,

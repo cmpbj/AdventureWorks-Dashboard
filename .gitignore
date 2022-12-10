@@ -201,6 +201,5 @@ Training
 Blog
 About
 
-dashboard/paths.py
+
 dashboard/__pycache__
-data/

@@ -4,13 +4,12 @@ import seaborn as sns
 import plotly.express as px
 from plotly.subplots import make_subplots
 
-from paths import get_data
 
 # Defines the function that creates the pandas dataset and made some changes on it
 
 def get_dataset():
 
-    df = pd.read_csv(get_data.get('data'))
+    df = pd.read_csv('../AW_dash/data/fct_sales_order.csv')
 
     df = df.drop(columns=['products_fk', 'customer_fk', 'location_sk'])
 
