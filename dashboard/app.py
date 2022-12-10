@@ -6,7 +6,7 @@ from PIL import Image
 from auxiliary_functions import get_dataset, temp_combo_chart, temp_bar_charts, temp_bubble_chart, analytical_tables
 
 # Page config
-im = Image.open('../AdventureWorks-Dashboard/icon/bike.ico')
+im = Image.open('dashboard/icon/bike.ico')
 st.set_page_config(
     page_title="AW Reports",
     page_icon=im,
