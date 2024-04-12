@@ -8,7 +8,7 @@ from plotly.subplots import make_subplots
 
 def get_dataset():
 
-    df = pd.read_csv('dashboard/data/fct_sales_order.csv')
+    df = pd.read_csv(r'dashboard/data/fct_sales_order.csv')
 
     df = df.drop(columns=['products_fk', 'customer_fk', 'location_sk'])
 
