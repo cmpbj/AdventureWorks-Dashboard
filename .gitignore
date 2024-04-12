@@ -203,3 +203,5 @@ About
 
 
 dashboard/__pycache__
+
+dashboard/paths.py
