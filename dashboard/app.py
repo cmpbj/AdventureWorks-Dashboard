@@ -71,22 +71,22 @@ df = df.sort_index()
 
 
 with col1:
-    total_negociated_value = df_temp_cards[initial_date:end_date]
+    total_negociated_value = df_temp_cards.loc[initial_date:end_date]
     total_negociated_value = round(total_negociated_value['Unit Price'].sum(), 2)
     kpi1 = st.metric(label='Total Negociated Value', value=total_negociated_value)
 
 with col2:
-    average_ticket = df_temp_cards[initial_date:end_date]
+    average_ticket = df_temp_cards.loc[initial_date:end_date]
     average_ticket = round(average_ticket['Unit Price'].mean(), 2)
     kpi2 = st.metric(label='Average Ticket', value=average_ticket)
 
 with col3:
-    quantity_purchased = df_temp_cards[initial_date:end_date]
+    quantity_purchased = df_temp_cards.loc[initial_date:end_date]
     quantity_purchased = round(quantity_purchased['Quantity'].sum(), 2)
     kpi3 = st.metric(label='Quantity Purchased', value=quantity_purchased)
 
 with col4:
-    number_of_orders = df_temp_cards[initial_date:end_date]
+    number_of_orders = df_temp_cards.loc[initial_date:end_date]
     number_of_orders = len(number_of_orders['Order'].unique())
     kpi4 = st.metric(label='Number of Orders', value=number_of_orders)
 
