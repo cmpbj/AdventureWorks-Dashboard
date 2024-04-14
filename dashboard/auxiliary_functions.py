@@ -32,6 +32,7 @@ def temp_combo_chart(initial_date, end_date):
     df = get_dataset()
 
     df_temp_combo_chart = df.set_index(['Order Date'])
+    df_temp_combo_chart = df_temp_combo_chart.sort_index()
     df_temp_combo_chart = df_temp_combo_chart[initial_date:end_date]
     df_temp_combo_chart = df_temp_combo_chart[['Unit Price', 'Quantity']]
     resampled = df_temp_combo_chart.resample(rule='m').sum() 
@@ -54,6 +55,7 @@ def temp_combo_chart(initial_date, end_date):
 def temp_bar_charts(initial_date, end_date):
     df = get_dataset()
     df_bar_plots = df.set_index(['Order Date'])
+    df_bar_plots = df_bar_plots.sort_index()
 
     total_negociated_per_reason = df_bar_plots[initial_date:end_date]
     total_negociated_per_reason = total_negociated_per_reason[['Sale Reason', 'Unit Price']].groupby(['Sale Reason'], as_index=False).sum()
@@ -102,6 +104,7 @@ def temp_bar_charts(initial_date, end_date):
 def temp_bubble_chart(initial_date, end_date):
     df = get_dataset()
     df_bubble_chart = df.set_index(['Order Date'])
+    df_bubble_chart = df_bubble_chart.sort_index()
     df_bubble_chart = df_bubble_chart[initial_date:end_date]
     df_bubble_chart = df_bubble_chart[['Ship Country', 'Ship City', 'Quantity', 'Unit Price', 'Revenue']].groupby(['Ship Country', 'Ship City'], as_index=False).sum()
     bubble_chart = px.scatter(data_frame=df_bubble_chart, x='Revenue', y="Unit Price", size="Quantity", color="Ship Country",
@@ -116,6 +119,7 @@ def temp_bubble_chart(initial_date, end_date):
 def analytical_tables(initial_date, end_date):
     df = get_dataset()
     df_product_info = df.set_index(['Order Date'])
+    df_product_info = df_product_info.sort_index()
     df_product_info = df_product_info[initial_date:end_date]
     df_product_info = df_product_info[['Product', 'Quantity', 'Unit Price']]
     df_quantity = df_product_info[['Product', 'Quantity']].groupby(['Product'], as_index=False).sum()
@@ -133,6 +137,7 @@ def analytical_tables(initial_date, end_date):
 
 
     df_credit_info = df.set_index(['Order Date'])
+    df_credit_info = df_credit_info.sort_index()
     df_credit_info = df_credit_info[initial_date:end_date]
     df_credit_info = df_credit_info[['Credit Card Name', 'Unit Price']]
     df_number_of_orders = df_credit_info[['Credit Card Name']].groupby(['Credit Card Name'], as_index=False).value_counts()
