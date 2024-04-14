@@ -67,6 +67,8 @@ with st.expander('Dataset info'):
 col1, col2, col3, col4 = st.columns(4)
 
 df_temp_cards = df.set_index(['Order Date'])
+df = df.sort_index()
+
 
 with col1:
     total_negociated_value = df_temp_cards[initial_date:end_date]
