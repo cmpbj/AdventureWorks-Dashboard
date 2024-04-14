@@ -67,7 +67,7 @@ with st.expander('Dataset info'):
 col1, col2, col3, col4 = st.columns(4)
 
 df_temp_cards = df.set_index(['Order Date'])
-df = df.sort_index()
+df_temp_cards = df_temp_cards.sort_index()
 
 
 with col1:
