@@ -20,9 +20,10 @@ def get_dataset():
            'order_date':'Order Date', 'due_date':'Due Date', 'ship_date':'Ship Date', 'is_ordered_online':'Is Ordered Online', 'order_qty':'Quantity',
            'unit_price':'Unit Price', 'unit_price_discount':'Discount', 'order_tax_amount_per_product':'Tax',
            'order_freight_per_product':'Freight per product', 'revenue':'Revenue'})
-    df['Order Date'] = pd.to_datetime(df['Order Date']).dt.date
-    df['Due Date'] = pd.to_datetime(df['Due Date']).dt.date
-    df['Ship Date'] = pd.to_datetime(df['Ship Date']).dt.date
+    df['Order'] = df['Order'].astype(object)
+    df['Order Date'] = pd.to_datetime(df['Order Date'])
+    df['Due Date'] = pd.to_datetime(df['Due Date'])
+    df['Ship Date'] = pd.to_datetime(df['Ship Date'])
     return df
 
 # Defines the function that creates the combo chart of the aplication

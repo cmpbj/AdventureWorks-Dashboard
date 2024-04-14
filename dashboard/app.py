@@ -28,11 +28,16 @@ st.markdown("""
 
 with st.sidebar:
     
-    initial_date = str(st.date_input(label='Initial Date', value=df['Order Date'].min(),
-     min_value=df['Order Date'].min(), max_value=df['Order Date'].max()))
+    initial_date = st.date_input(label='Initial Date', value=df['Order Date'].min(),
+     min_value=df['Order Date'].min(), max_value=df['Order Date'].max())
+    
+    initial_date = initial_date.strftime("%Y-%m-%d")
+    
 
-    end_date = str(st.date_input(label='End Date', value=df['Order Date'].max(),
-     min_value=df['Order Date'].min(), max_value=df['Order Date'].max()))
+    end_date = st.date_input(label='End Date', value=df['Order Date'].max(),
+     min_value=df['Order Date'].min(), max_value=df['Order Date'].max())
+    
+    end_date = end_date.strftime("%Y-%m-%d")
 
 # Info do dataset
 
